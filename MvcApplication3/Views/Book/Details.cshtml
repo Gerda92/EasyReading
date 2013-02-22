@@ -1,0 +1,15 @@
+﻿@model MvcApplication3.Models.Book
+
+@{
+    ViewBag.Title = "Details";
+    var body = MvcApplication3.Lib.BookFormatter.GetHtmlBody(Model.Path);
+}
+
+<div>
+    @Html.Raw(body)
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,8 @@
+﻿@model IEnumerable<MvcApplication3.Models.BookGroup>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@Html.ActionLink(item.Title, "TwoBooks", new { id=item.Id }) by @item.Author</li>
+    }
+</ul>
