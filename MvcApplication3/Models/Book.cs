@@ -17,8 +17,16 @@ namespace MvcApplication3.Models
         public string Author { get; set; }
         public string Language { get; set; }
         public string Path { get; set; }
+
+        public virtual ICollection<Chapter> Chapters { get; set; }
+
         // The same book in different languages or variants is one group
         public BookGroup Group { get; set; }
+
+        public Book()
+        {
+            Chapters = new List<Chapter>();
+        }
 
     }
 }

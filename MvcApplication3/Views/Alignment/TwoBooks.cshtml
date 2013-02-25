@@ -1,0 +1,21 @@
+﻿
+@{
+    var body1 = MvcApplication3.Lib.BookFormatter.GetHtmlBody(Model[0].Path);
+    var body2 = MvcApplication3.Lib.BookFormatter.GetHtmlBody(Model[1].Path);
+}
+
+<h2>TwoBooks</h2>
+
+<table><tr>
+
+    <td style="vertical-align:top;">
+        @Html.Raw(body1)
+    </td>
+
+    <td style="vertical-align:top;">
+        @Html.Raw(body2)
+    </td>
+
+</tr></table>
+
+@Scripts.Render("~/Scripts/alignment.js")

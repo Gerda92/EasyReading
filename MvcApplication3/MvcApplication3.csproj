@@ -177,7 +177,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AlignmentController.cs" />
     <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Controllers\ChapterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -188,6 +190,9 @@
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\BookDbContext.cs" />
     <Compile Include="Models\BookGroup.cs" />
+    <Compile Include="Models\BookmarkBinding.cs" />
+    <Compile Include="Models\Chapter.cs" />
+    <Compile Include="Models\ChapterBinding.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -251,6 +256,7 @@
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="bin\eBdb.EpubReader.dll" />
     <Content Include="bin\Ionic.Zip.dll" />
+    <Content Include="Scripts\alignment.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -265,7 +271,9 @@
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -309,7 +317,12 @@
     <Content Include="Views\Book\Create.cshtml" />
     <Content Include="Views\Book\Edit.cshtml" />
     <Content Include="Views\Book\Delete.cshtml" />
-    <Content Include="Views\Home\TwoBooks.cshtml" />
+    <Content Include="Views\Alignment\TwoBooks.cshtml" />
+    <Content Include="Views\Chapter\Index.cshtml" />
+    <Content Include="Views\Chapter\Details.cshtml" />
+    <Content Include="Views\Chapter\Create.cshtml" />
+    <Content Include="Views\Chapter\Edit.cshtml" />
+    <Content Include="Views\Chapter\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\HtmlBooks\" />

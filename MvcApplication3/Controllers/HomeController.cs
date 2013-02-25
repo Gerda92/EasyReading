@@ -17,12 +17,6 @@ namespace MvcApplication3.Controllers
             return View(db.BookGroups.ToList());
         }
 
-        public ActionResult TwoBooks(int id = 0)
-        {
-            BookGroup group = db.BookGroups.Find(id);
-            return View(group.Books.ToList());
-        }
-
         public ActionResult About()
         {
             ViewBag.Message = "Your app description page.";

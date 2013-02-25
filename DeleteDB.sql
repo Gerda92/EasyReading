@@ -1,0 +1,1 @@
+DROP DATABASE [MvcApplication3.Models.BookDbContext]
