@@ -8,10 +8,10 @@ using System.Web.Security;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
-using MvcApplication3.Filters;
-using MvcApplication3.Models;
+using EasyReading.Filters;
+using EasyReading.Models;
 
-namespace MvcApplication3.Controllers
+namespace EasyReading.Controllers
 {
     [Authorize]
     [InitializeSimpleMembership]

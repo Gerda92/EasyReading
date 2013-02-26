@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace MvcApplication3.Models
+namespace EasyReading.Models
 {
     public class BookDbContext : DbContext
     {

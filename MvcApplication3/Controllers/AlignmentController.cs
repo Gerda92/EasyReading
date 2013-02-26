@@ -1,11 +1,11 @@
-﻿using MvcApplication3.Models;
+﻿using EasyReading.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MvcApplication3.Controllers
+namespace EasyReading.Controllers
 {
     public class AlignmentController : Controller
     {
@@ -23,11 +23,11 @@ namespace MvcApplication3.Controllers
         //
         // POST: /Chapter/Create
 
-        [HttpPost]
-        public JsonResult CreateChapterBinding(int id1, int? id2 = null)
+        [HttpGet]
+        public JsonResult CreateChapterBinding(string id1, string id2 = null)
         {
-            var ch1 = db.Chapters.Single(c => c.Id == id1);
-            var ch2 = id2 == null ? null : db.Chapters.Single(c => c.Id == id2);
+            var ch1 = db.Chapters.Single(r => r.ChapterId == id1);
+            var ch2 = id2 == null ? null : db.Chapters.Single(r => r.ChapterId == id2);
 
             ChapterBinding cb = new ChapterBinding()
             {
@@ -38,10 +38,10 @@ namespace MvcApplication3.Controllers
             db.ChapterBindings.Add(cb);
             db.SaveChanges();
 
-            return Json(cb);
+            return Json("Success!", JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
+        [HttpGet]
         public JsonResult CreateBookmarkBinding(int book1, int book2, string id1, string id2 = null)
         {
 
@@ -56,7 +56,7 @@ namespace MvcApplication3.Controllers
             db.BookmarkBindings.Add(mark);
             db.SaveChanges();
 
-            return Json(mark);
+            return Json(mark, JsonRequestBehavior.AllowGet);
         }
 
     }

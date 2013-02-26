@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace MvcApplication3
+namespace EasyReading
 {
     public class RouteConfig
     {
@@ -23,6 +23,12 @@ namespace MvcApplication3
                 name: "Alignment",
                 url: "Alignment/{id1}/{id2}",
                 defaults: new { controller = "Alignment", action = "TwoBooks" }  // Parameter defaults
+            );
+
+            routes.MapRoute(
+                name: "ChapterBinding",
+                url: "Alignment/CreateChapter/{id1}/{id2}",
+                defaults: new { controller = "Alignment", action = "CreateChapterBinding" }  // Parameter defaults
             );
 
             routes.MapRoute(

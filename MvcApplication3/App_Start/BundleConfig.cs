@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace MvcApplication3
+namespace EasyReading
 {
     public class BundleConfig
     {

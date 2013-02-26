@@ -5,9 +5,9 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MvcApplication3.Models;
+using EasyReading.Models;
 
-namespace MvcApplication3.Controllers
+namespace EasyReading.Controllers
 {
     public class ChapterController : Controller
     {
@@ -20,11 +20,14 @@ namespace MvcApplication3.Controllers
         public ActionResult Index(int book_id)
         {
             var chapters = db.Books.Single(b => b.Id == book_id).Chapters;
+            /*
             var collection = chapters.Select(x => new {
                 Id = x.ChapterId,
                 Order = x.Order
             });
-            return Json(collection, JsonRequestBehavior.AllowGet);
+             * */
+            //return Json(collection, JsonRequestBehavior.AllowGet);
+            return View(chapters);
         }
 
         public ActionResult Index()

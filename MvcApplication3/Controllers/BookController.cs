@@ -5,11 +5,11 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MvcApplication3.Models;
+using EasyReading.Models;
 using System.IO;
-using MvcApplication3.Lib;
+using EasyReading.Lib;
 
-namespace MvcApplication3.Controllers
+namespace EasyReading.Controllers
 {
     public class BookController : Controller
     {
@@ -49,7 +49,7 @@ namespace MvcApplication3.Controllers
         // POST: /Book/Create
 
         [HttpPost]
-        public ActionResult Create(Book book)
+        public ActionResult Create(Book temp)
         {
             if (Request.Files.Count == 2)
             {
@@ -57,10 +57,10 @@ namespace MvcApplication3.Controllers
                 for (int i = 0; i < 2; i++)
                 {
                     var uploadedFile = Request.Files[i];
-                    var fileSavePath = Server.MapPath("~/App_Data/UploadedBooks/" + uploadedFile.FileName);
-                    uploadedFile.SaveAs(fileSavePath);
+                    var fileSavePath = "~/App_Data/UploadedBooks/" + uploadedFile.FileName;
+                    uploadedFile.SaveAs(Server.MapPath(fileSavePath));
 
-                    Book b = BookFormatter.CreateHtmlFile(fileSavePath);
+                    Book b = BookFormatter.ExtractBook(fileSavePath);
                     if (group.Title == null)
                     {
                         group.Title = b.Title;
@@ -72,6 +72,13 @@ namespace MvcApplication3.Controllers
                 }
                 db.BookGroups.Add(group);
                 db.SaveChanges();
+
+                foreach (Book book in group.Books.ToList()) {
+                    BookFormatter.PrepareForAlignment(book);
+                }
+
+                db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
             return View();

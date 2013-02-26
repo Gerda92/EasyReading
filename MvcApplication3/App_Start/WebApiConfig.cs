@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace MvcApplication3
+namespace EasyReading
 {
     public static class WebApiConfig
     {

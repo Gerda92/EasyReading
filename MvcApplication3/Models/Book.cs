@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
 
-namespace MvcApplication3.Models
+namespace EasyReading.Models
 {
     public class Book
     {
@@ -16,6 +16,10 @@ namespace MvcApplication3.Models
         public string Title { get; set; }
         public string Author { get; set; }
         public string Language { get; set; }
+
+        // path to source (.epub) file
+        public string SourcePath { get; set; }
+        // path to prepared html file
         public string Path { get; set; }
 
         public virtual ICollection<Chapter> Chapters { get; set; }
